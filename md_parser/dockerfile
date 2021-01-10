@@ -1,0 +1,9 @@
+FROM python:3.8-buster
+
+WORKDIR /src/
+
+COPY src/requirements.txt /tmp/
+
+RUN pip install -r /tmp/requirements.txt
+
+CMD [ "/bin/bash" ]

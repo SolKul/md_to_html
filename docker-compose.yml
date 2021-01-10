@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  converter:
+    build: md_parser/.
+    container_name: md_parser
+    tty: true
+    # この下の共有フォルダ構成とこのファイル外のフォルダ構成を一致させておくこと
+    volumes:
+      - ./python_src:/src
+  node_svg:
+    build: math2svg/.
+    container_name: math2svg
+    tty: true
