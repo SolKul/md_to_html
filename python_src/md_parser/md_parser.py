@@ -61,10 +61,12 @@ def parse_math_block(math_block,svg=False):
     ブロック環境の数式をパースする。
     """
     if svg:
-        whole_mb="".join(math_block[1:-1])
+        whole_mb="".join(math_block[1:-1]).replace(os.linesep,"")
         req = urllib.request.Request(url,whole_mb.encode(),headers)
         with urllib.request.urlopen(req) as res:
             body=res.read().decode("utf-8")
+            if body == "":
+                raise ValueError("Cant convert :"+whole_mb)
             parsed_math_block = \
                 div_begin + body + div_end
              
@@ -124,6 +126,8 @@ class InlineMath:
                 headers)
             with urllib.request.urlopen(req) as res:
                 conv_math_str=res.read().decode("utf-8")
+                if conv_math_str == "":
+                    raise ValueError("Cant convert :"+conv_math_str)
         else:
             # ブラケットをエスケープする
             conv_math_str=bracket_begin_pat.sub(parsed_bracket_begin, conv_math_str)
@@ -272,4 +276,4 @@ def parse_md_to_html(md_path,svg=False):
 
     # 保存する
     html_path=Path(md_path.stem+".html")
-    html_path.write_text("\n".join(parsed_list),encoding='utf-8')
+    html_path.write_text("".join(parsed_list),encoding='utf-8')
