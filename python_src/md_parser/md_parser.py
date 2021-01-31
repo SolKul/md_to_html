@@ -198,11 +198,11 @@ def parse_plain_block(plain_block,svg=False):
     # 数式を置換した文字列をmdモジュールでパースする。
     parsed=md_parser.convert(plain_str)
     
-    parsed=h3tag_begin_pat.sub(h4tag_begin,parsed)
-    parsed=h3tag_end_pat.sub(h4tag_end,parsed)
+    # parsed=h3tag_begin_pat.sub(h4tag_begin,parsed)
+    # parsed=h3tag_end_pat.sub(h4tag_end,parsed)
     
-    parsed=h2tag_begin_pat.sub(h3tag_begin,parsed)
-    parsed=h2tag_end_pat.sub(h3tag_end,parsed)
+    # parsed=h2tag_begin_pat.sub(h3tag_begin,parsed)
+    # parsed=h2tag_end_pat.sub(h3tag_end,parsed)
     
     # 置換した「inline_math_数字」をパースした元のインライン数式で置換する。
     for i in range(match_num):
