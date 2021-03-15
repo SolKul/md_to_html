@@ -30,9 +30,9 @@ $ python main.py
 
 There are 2 `docker` containers, `converter` and `node_svg`.
 
-`converter` container has python environment. It use a python module named `md_pareser` to convert `Markdown` language to `HTML` except for converting `TeX` equation. The `md_pareser` module uses [Python-Markdown](https://pypi.org/project/Markdown/).
+`converter` container has python environment. It uses a python module named `md_pareser` to convert `Markdown` language to `HTML` except for converting `TeX` equation. The `md_pareser` module uses [Python-Markdown](https://pypi.org/project/Markdown/).
 
-`node_svg` container has node environment. It convert `TeX` equation to SVG. It use [mathjax-node](https://github.com/mathjax/MathJax-node).
+`node_svg` container has node environment. It converts `TeX` equation to SVG. It uses [mathjax-node](https://github.com/mathjax/MathJax-node).
 
 ## issue
 
